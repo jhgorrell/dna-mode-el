@@ -1,8 +1,7 @@
-# -*- mode: org -*- 
-#+TITLE:   README.org
+# -*- mode: org -*-
 #+AUTHOR:  harley
 #+EMAIL:   harley@panix.com
-#+TEXT:    $Id: README.org,v 1.1 2012/05/11 00:54:33 harley Exp $
+#+TEXT:    $Id: README.org,v 1.2 2012/05/11 00:58:26 harley Exp $
 
 * dna-mode.el
   A collection of functions for editing DNA sequences.  It
