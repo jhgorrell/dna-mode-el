@@ -2,14 +2,15 @@
 ;;
 ;; ~harley/share/emacs/pkg/dna/dna-mode.el ---
 ;;
-;; $Id: dna-mode.el,v 1.46 2011/11/26 22:36:46 harley Exp $
+;; $Id: dna-mode.el,v 1.47 2012/05/11 01:00:01 harley Exp $
 ;;
 
 ;; Author:    Harley Gorrell <harley@panix.com>
+;; Github:    https://raw.github.com/jhgorrell/dna-mode-el/master/dna-mode.el
 ;; URL:       http://www.mahalito.net/~harley/elisp/dna-mode.el
 ;; License:   GPL v2
 ;; Keywords:  dna, emacs, editing
-;; Version:   $Revision: 1.46 $
+;; Version:   $Revision: 1.47 $
 
 ;;; Commentary:
 ;; * A collection of functions for editing DNA sequences.  It
