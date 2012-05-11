@@ -1,0 +1,17 @@
+# -*- mode: org -*- 
+#+TITLE:   README.org
+#+AUTHOR:  harley
+#+EMAIL:   harley@panix.com
+#+TEXT:    $Id: README.org,v 1.1 2012/05/11 00:54:33 harley Exp $
+
+* dna-mode.el
+  A collection of functions for editing DNA sequences.  It
+  provides functions to make editing dna in Emacs easier.
+
+  Dna-mode will:
+  -  Fontify keywords and line numbers in sequences.
+  -  Fontify bases when font-lock-mode is disabled.
+  -  Incrementally search dna over pads and numbers.
+  -  Complement and reverse complement a region.
+  -  Move over bases and entire sequences.
+  -  Detect sequence files by content.
