@@ -14,3 +14,6 @@
   -  Complement and reverse complement a region.
   -  Move over bases and entire sequences.
   -  Detect sequence files by content.
+
+* dna-primer.el
+  Generates primers for sequences within emacs.
