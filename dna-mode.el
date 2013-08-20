@@ -2,7 +2,7 @@
 ;;
 ;; ~harley/share/emacs/pkg/dna/dna-mode.el ---
 ;;
-;; $Id: dna-mode.el,v 1.47 2012/05/11 01:00:01 harley Exp $
+;; $Id: dna-mode.el,v 1.50 2013/08/05 03:46:05 harley Exp $
 ;;
 
 ;; Author:    Harley Gorrell <harley@panix.com>
@@ -10,7 +10,7 @@
 ;; URL:       http://www.mahalito.net/~harley/elisp/dna-mode.el
 ;; License:   GPL v2
 ;; Keywords:  dna, emacs, editing
-;; Version:   $Revision: 1.47 $
+;; Version:   $Revision: 1.50 $
 
 ;;; Commentary:
 ;; * A collection of functions for editing DNA sequences.  It
@@ -382,6 +382,12 @@ If an invalid base is found, stops on the base and signals an error."
         (message "Sequence: '%s' %dbp" title pos)
         pos))))
 
+(defun dna-clean-string (string)
+  "Remove non dna bases from STRING, returning the cleaned up string."
+  (replace-regexp-in-string "[^acgtACGT]" "" string))
+;; (dna-clean-string "acgt \n ACGT 123")
+;; (dna-clean-string "")
+
 ;;; reverse and complement
 (defun dna-complement-base-list (base)
   "Complement the BASE using a list based method.
@@ -418,6 +424,23 @@ passed over unchanged."
       (setq r-cbase (dna-complement-base r-base))
       (insert (if r-cbase r-cbase r-base))
       (setq r-point (1+ r-point)))))
+
+(defun dna-revcomp-string (seq)
+  "Reverse complment a sequence string."
+  (let ((seq-len (length seq)))
+    (let ((qes (make-string seq-len ?-)))
+      (dotimes (i seq-len)
+        (aset qes i (dna-complement-base (aref seq (- seq-len i 1)))))
+      qes)))
+;; (dna-revcomp-str "AAAcgt")
+
+(defun dna-rev-string (seq)
+  (let ((seq-len (length seq)))
+    (let ((qes (make-string seq-len ?-)))
+      (dotimes (i seq-len)
+        (aset qes i (aref seq (- seq-len i 1))))
+      qes)))
+;; (dna-rev-string "abcdefghi")
 
 ;;;###autoload
 (defun dna-reverse-complement-region (r-start r-end)
@@ -634,6 +657,21 @@ Assumes fasta format."
   (dna-beginning-of-sequence)
   (end-of-line)
   (insert "   " (format-time-string dna-timestamp-format (current-time))))
+
+(defun dna-make-random-sequence (len &optional bases)
+  "Make a random sequence of length LEN.  Draw from BASES if provided.
+Default bases are 'acgt'.)"
+  (when (null bases)
+    (setq bases "acgt"))
+  (let ((seq (make-string len ?-))
+        (bases-len (length bases)))
+    (dotimes (i len)
+      (aset seq i (elt bases (random bases-len))))
+    seq))
+;; (dna-make-random-sequence 10)
+;; (dna-make-random-sequence 10 "aA")
+;; (dna-make-random-sequence 10 "aaaaT")
+
 
 ;; done loading
 (run-hooks 'dna-mode-load-hook)
