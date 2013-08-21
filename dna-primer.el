@@ -2,13 +2,14 @@
 ;;
 ;; ~/share/emacs/pkg/dna/dna-primer.el ---
 ;;
-;; $Id: dna-primer.el,v 1.6 2013/08/20 19:32:25 harley Exp $
+;; $Id: dna-primer.el,v 1.7 2013/08/21 18:05:15 harley Exp $
 ;;
 ;; Author:  Harley Gorrell <harley@panix.com>
 ;; Keywords:
 ;;
 ;;; Commentary:
-;; * custom primer code converted from Excel frp,
+;; * custom primer code converted from Excel written by Dene Littler,
+;;   as provided by Sirano Dhe-Paganon
 ;;
 ;; * The interactive functions are:
 ;;   - dna-primer-buffer = computes the primer for a buffer.
