@@ -8,7 +8,7 @@
 ;; Author:    Harley Gorrell <harley@panix.com>
 ;; Github:    https://raw.github.com/jhgorrell/dna-mode-el/master/dna-mode.el
 ;; URL:       http://www.mahalito.net/~harley/elisp/dna-mode.el
-;; License:   GPL v2
+;; License:   GPL v3+
 ;; Keywords:  dna, emacs, editing
 ;; Version:   $Revision: 1.50 $
 
