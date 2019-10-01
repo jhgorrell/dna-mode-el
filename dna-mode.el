@@ -628,10 +628,10 @@ See dna-color-bases for details.")
 
 (defun dna-color-bases-region (s e)
   "Color the bases in the region S to E.
-NOTE: The function `font-lock-mode' will undo the work of this
-function if activated.  Disable it before using this
-function.  If `dna-color-bases-auto' is set then option `font-lock-mode'
-is deactivated automatically."
+NOTE: The function `font-lock-mode' will undo our colors, so we
+cant have it active for this function to be useful.
+If `dna-color-bases-auto' is set then we disable `font-lock-mode' when run.
+Otherwise, raise an error to alert the user."
   (interactive "r")
   (if (and dna-color-bases-auto font-lock-mode)
     (font-lock-mode -1))
@@ -658,6 +658,12 @@ is deactivated automatically."
   "Uncolor the bases from S to E."
   (interactive "r")
   (remove-text-properties s e '(face nil)))
+
+(defun dna-color-bases-buffer ()
+  (interactive)
+  "Color the bases in the buffer.
+This is a bit heavy handed, as it will color every ACGT in the buffer."
+  (dna-color-bases-region (point-min) (point-max)))
 
 ;;; Functions for me.
 
